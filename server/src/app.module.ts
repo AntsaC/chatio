@@ -8,9 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(
-      'mongodb+srv://antsafiderana333:ramananarivo@cluster0.rihjhfe.mongodb.net/chatio?retryWrites=true&w=majority',
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     MongooseModule.forFeature([{ name: Cat.name, schema: CatSchema }]),
   ],
   controllers: [AppController],
